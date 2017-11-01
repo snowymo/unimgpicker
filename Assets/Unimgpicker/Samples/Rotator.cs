@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-namespace Kakera
+namespace Zhenyi
 {
     public class Rotator : MonoBehaviour
     {

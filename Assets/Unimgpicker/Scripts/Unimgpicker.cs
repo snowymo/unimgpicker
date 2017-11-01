@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Kakera
+namespace Zhenyi
 {
     public class Unimgpicker : MonoBehaviour
     {
-        public delegate void ImageDelegate(string path);
+        public delegate void DocDelegate(string path);
 
         public delegate void ErrorDelegate(string message);
 
-        public event ImageDelegate Completed;
+        public event DocDelegate Completed;
 
         public event ErrorDelegate Failed;
 
@@ -26,6 +26,8 @@ namespace Kakera
 
         public void Show(string title, string outputFileName, int maxSize)
         {
+			//Debug.Log("in Unimgpicker.cs:Show()function");
+			print("[hehe]in Unimgpicker.cs:Show()function");
             picker.Show(title, outputFileName, maxSize);
         }
 

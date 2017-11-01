@@ -1,15 +1,16 @@
-﻿#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
+#if UNITY_EDITOR_OSX || UNITY_EDITOR_WIN
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 using System.IO;
 
-namespace Kakera
+namespace Zhenyi
 {
 	internal class Picker_editor : IPicker
 	{
 		public void Show(string title, string outputFileName, int maxSize)
 		{
+			Debug.Log("[hehe]: in picker editor.cs");
 			var path = EditorUtility.OpenFilePanel(title, "","png");
 			if (path.Length != 0) {
 				string destination = Application.persistentDataPath + "/" + outputFileName;

@@ -1,7 +1,7 @@
 ﻿#if UNITY_ANDROID
 using UnityEngine;
 
-namespace Kakera
+namespace Zhenyi
 {
     internal class PickerAndroid : IPicker
     {
@@ -9,10 +9,11 @@ namespace Kakera
 
         public void Show(string title, string outputFileName, int maxSize)
         {
-            using (var picker = new AndroidJavaClass(PickerClass))
-            {
-                picker.CallStatic("show", title, outputFileName, maxSize);
-            }
+			Debug.Log("[hehe] android");
+            //using (var picker = new AndroidJavaClass(PickerClass))
+            //{
+            //    picker.CallStatic("show", title, outputFileName, maxSize);
+            //}
         }
     }
 }

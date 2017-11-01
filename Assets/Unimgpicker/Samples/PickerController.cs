@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Kakera
+namespace Zhenyi
 {
     public class PickerController : MonoBehaviour
     {
         [SerializeField]
-        private Unimgpicker imagePicker;
+		private Unimgpicker docPicker;
 
         [SerializeField]
         private MeshRenderer imageRenderer;
 
         void Awake()
         {
-            imagePicker.Completed += (string path) =>
+            docPicker.Completed += (string path) =>
             {
-                StartCoroutine(LoadImage(path, imageRenderer));
+				StartCoroutine(LoadFile(path));
             };
         }
 
         public void OnPressShowPicker()
         {
-            imagePicker.Show("Select Image", "unimgpicker", 1024);
+            docPicker.Show("Select File", "undocpicker", 1024);
         }
 
         private IEnumerator LoadImage(string path, MeshRenderer output)
@@ -33,10 +33,24 @@ namespace Kakera
             var texture = www.texture;
             if (texture == null)
             {
-                Debug.LogError("Failed to load texture url:" + url);
+                Debug.LogError("Failed to load data url:" + url);
             }
 
             output.material.mainTexture = texture;
         }
+
+		private IEnumerator LoadFile(string path)
+		{
+			var url = "file://" + path;
+			var www = new WWW(url);
+			yield return www;
+
+			var data = www.text;
+			if (data == null)
+			{
+				Debug.LogError("Failed to load data url:" + url);
+			}
+			Debug.Log("data:" + data);
+		}
     }
 }

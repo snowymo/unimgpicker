@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using Debug = UnityEngine.Debug;
 
-namespace Kakera.Unimgpicker
+namespace Zhenyi.Unimgpicker
 {
     public class XcodeProjectConfigurator
     {
